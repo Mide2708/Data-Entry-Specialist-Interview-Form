@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You | 108 Holding Company, Inc.</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>Submission Received | 108 Holding Company, Inc.</title>
+  <link rel="icon" href="favicon.png" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -15,191 +16,162 @@
       font-family: Arial, Helvetica, sans-serif;
       min-height: 100vh;
       background: linear-gradient(180deg, #edf4ff 0%, #f7f9fc 100%);
-      color: #1f2937;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
       position: relative;
-      overflow: hidden;
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      background: url("assets/watermark-108.png") center center / 760px auto no-repeat;
+      background: url("assets/watermark-108.png") center center / 700px no-repeat;
       opacity: 0.05;
       pointer-events: none;
     }
 
     .card {
       width: 100%;
-      max-width: 760px;
-      background: rgba(255, 255, 255, 0.97);
-      border-radius: 20px;
+      max-width: 780px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.12);
       border: 1px solid #e5e7eb;
       position: relative;
       z-index: 1;
-      backdrop-filter: blur(2px);
     }
 
-    .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: #ffffff;
+    .header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
       text-align: center;
-      padding: 30px 24px;
+      padding: 30px;
       position: relative;
     }
 
-    .hero::after {
+    .header::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: url("assets/watermark-108.png") center center / 320px auto no-repeat;
-      opacity: 0.06;
-      pointer-events: none;
+      background: url("assets/watermark-108.png") center / 300px no-repeat;
+      opacity: 0.07;
     }
 
     .logo {
-      max-width: 220px;
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 16px;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.18));
-    }
-
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 34px;
-      line-height: 1.2;
+      max-width: 180px;
+      margin-bottom: 15px;
       position: relative;
       z-index: 1;
     }
 
-    .hero p {
+    .header h1 {
       margin: 0;
-      font-size: 16px;
-      opacity: 0.96;
+      font-size: 30px;
       position: relative;
       z-index: 1;
     }
 
     .content {
-      padding: 36px 34px 32px;
+      padding: 35px;
       text-align: center;
     }
 
-    .checkmark {
-      width: 78px;
-      height: 78px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      background: #ecfdf5;
-      border: 2px solid #a7f3d0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      color: #047857;
-      font-weight: 700;
+    .check {
+      font-size: 40px;
+      color: #10b981;
+      margin-bottom: 10px;
     }
 
-    .content h2 {
-      margin: 0 0 12px;
-      font-size: 28px;
-      color: #111827;
+    h2 {
+      margin-bottom: 10px;
     }
 
-    .content p {
-      margin: 0 0 14px;
-      font-size: 16px;
-      line-height: 1.75;
+    p {
       color: #475569;
+      line-height: 1.7;
     }
 
-    .highlight-box {
-      margin-top: 24px;
-      padding: 18px 20px;
-      border-radius: 14px;
-      background: #f8fbff;
-      border: 1px solid #dbeafe;
+    .section {
       text-align: left;
+      margin-top: 25px;
+      background: #f8fbff;
+      padding: 18px;
+      border-radius: 12px;
+      border-left: 4px solid #2563eb;
     }
 
-    .highlight-box h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
+    .section h3 {
+      margin-top: 0;
       color: #1e3a8a;
     }
 
-    .highlight-box p {
-      margin: 0;
-      font-size: 15px;
-      color: #334155;
+    .section ul {
+      padding-left: 18px;
     }
 
     .footer {
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid #e5e7eb;
+      margin-top: 25px;
       font-size: 13px;
       color: #6b7280;
       text-align: center;
     }
-
-    @media (max-width: 640px) {
-      body::before {
-        background-size: 420px auto;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .content {
-        padding: 28px 20px 24px;
-      }
-
-      .content h2 {
-        font-size: 24px;
-      }
-
-      .logo {
-        max-width: 170px;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="hero">
-      <img src="assets/logo-108.png" alt="108 Holding Company, Inc. Logo" class="logo" />
-      <h1>Submission Received</h1>
-      <p>108 Holding Company, Inc.</p>
-    </div>
 
-    <div class="content">
-      <div class="checkmark">✓</div>
-      <h2>Thank You for Completing Your Interview</h2>
-      <p>Your interview form has been submitted successfully.</p>
-      <p>Our HR team will review your responses carefully, and qualified candidates will be contacted regarding the next steps in the hiring process.</p>
+<div class="card">
 
-      <div class="highlight-box">
-        <h3>What happens next?</h3>
-        <p>Please monitor your email and phone number for any updates from our team. We appreciate your time, interest, and effort in completing this interview assessment.</p>
-      </div>
-
-      <div class="footer">
-        108 Holding Company, Inc. • Encino, CA 91436 • info@108holdingcompanyinc.com • www.108holdingcompanyinc.com
-      </div>
-    </div>
+  <div class="header">
+    <img src="assets/logo-108.png" class="logo">
+    <h1>Submission Successful</h1>
   </div>
+
+  <div class="content">
+    <div class="check">✔</div>
+
+    <h2>Thank You for Completing Your Interview</h2>
+
+    <p>
+      Your responses have been successfully submitted to 108 Holding Company, Inc.
+      Our hiring team will carefully review your interview.
+    </p>
+
+    <div class="section">
+      <h3>Position Summary</h3>
+      <p>
+        You have applied for the <strong>Data Entry Specialist</strong> position.
+        This role focuses on accuracy, organization, and efficient data management
+        within a remote work environment.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>What Happens Next</h3>
+      <ul>
+        <li>Your responses will be reviewed by our HR team.</li>
+        <li>Qualified candidates will be contacted via email or phone.</li>
+        <li>Further instructions or an official offer will be provided if selected.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Important Reminder</h3>
+      <p>
+        Please ensure your email and phone number remain accessible, as all future
+        communication regarding your application will be sent through those channels.
+      </p>
+    </div>
+
+    <div class="footer">
+      108 Holding Company, Inc. • Encino, CA 91436 • info@108holdingcompanyinc.com
+    </div>
+
+  </div>
+
+</div>
+
 </body>
 </html>
