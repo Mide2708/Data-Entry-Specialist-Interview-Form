@@ -355,8 +355,24 @@
       background: linear-gradient(135deg, #000000, #1a1a1a);
     }
 
+    button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .reset-btn {
       background: linear-gradient(135deg, #6b6b6b, #2f2f2f);
+    }
+
+    .submission-message {
+      display: none;
+      background: #fff5f5;
+      border-left: 5px solid var(--red);
+      padding: 14px;
+      border-radius: 8px;
+      color: #3f1f1f;
+      font-weight: bold;
     }
 
     footer {
@@ -526,16 +542,17 @@
           Please complete all sections carefully and answer each question thoroughly before submitting your interview form.
         </p>
 
+        <div class="submission-message" id="submissionMessage">
+          Submitting your interview assessment. Please wait...
+        </div>
+
         <form
           id="interviewForm"
-          action="https://formsubmit.co/info@400marketingllc.com"
+          action="https://formspree.io/f/mkoyzovd"
           method="POST"
         >
 
           <input type="hidden" name="_subject" value="400 Marketing LLC - Data Entry Specialist Interview Submission">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://dataentryspecialistinterviewform.cv/thank-you.html">
 
           <h2>Personal Information</h2>
 
@@ -625,7 +642,7 @@
 
           <div class="question-box">
             <label for="q11">Question 11</label>
-            <p>Which financial institution do you primarily use for payroll purposes? (Please note: prepaid banks are not accepted.) If hired, what would your 60-day plan look like in this role?</p>
+            <p>If hired, are you able to complete payroll and onboarding documentation through the company’s secure onboarding process? Also, what would your 60-day plan look like in this role?</p>
             <textarea id="q11" name="Question 11" required></textarea>
           </div>
 
@@ -660,10 +677,10 @@
             </label>
           </div>
 
-          <input type="text" name="_honey" style="display:none">
+          <input type="text" name="_gotcha" style="display:none">
 
           <div class="button-row">
-            <button type="submit">Submit Interview Form</button>
+            <button type="submit" id="submitBtn">Submit Interview Form</button>
             <button type="reset" class="reset-btn">Reset Form</button>
           </div>
         </form>
@@ -700,6 +717,44 @@
     document.getElementById("passwordInput").addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
         checkPassword();
+      }
+    });
+
+    const form = document.getElementById("interviewForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const submissionMessage = document.getElementById("submissionMessage");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
+      submissionMessage.style.display = "block";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit Interview Form";
+          submissionMessage.style.display = "block";
+          submissionMessage.textContent = "Submission could not be completed. Please check your information and try again.";
+        }
+      } catch (error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Interview Form";
+        submissionMessage.style.display = "block";
+        submissionMessage.textContent = "Submission could not be completed. Please check your connection and try again.";
       }
     });
   </script>
