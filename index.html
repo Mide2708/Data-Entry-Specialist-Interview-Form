@@ -3,570 +3,706 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Entry Specialist Interview Form | 108 Holding Company, Inc.</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <title>Data Entry Specialist Interview Form | 400 Marketing LLC</title>
+
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --primary-dark: #050505;
+      --black: #000000;
+      --red: #b80000;
+      --soft-bg: #f4f4f4;
+      --card-bg: #ffffff;
+      --text-main: #1f1f1f;
+      --text-muted: #5f5f5f;
+      --border: #dddddd;
     }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #edf4ff 0%, #f7f9fc 100%);
-      color: #1f2937;
+      background: var(--soft-bg);
+      color: var(--text-main);
       line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("assets/watermark-108.png") center center / 760px auto no-repeat;
-      opacity: 0.045;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .page-wrap {
-      position: relative;
-      z-index: 1;
-      padding: 30px 16px;
-    }
-
-    .container {
-      max-width: 980px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.97);
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
-      backdrop-filter: blur(2px);
-    }
-
-    .header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: #ffffff;
-      text-align: center;
-      padding: 28px 40px 34px;
-      position: relative;
-    }
-
-    .header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("assets/watermark-108.png") center center / 340px auto no-repeat;
-      opacity: 0.06;
-      pointer-events: none;
-    }
-
-    .logo-wrap,
-    .header h1,
-    .header p {
-      position: relative;
-      z-index: 1;
-    }
-
-    .logo-wrap {
+    .password-screen {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(5, 5, 5, 0.94), rgba(17, 17, 17, 0.96)),
+        radial-gradient(circle at top left, rgba(184, 0, 0, 0.28), transparent 35%),
+        #050505;
       display: flex;
+      align-items: center;
       justify-content: center;
-      margin-bottom: 16px;
+      padding: 25px;
+    }
+
+    .password-box {
+      background: #ffffff;
+      max-width: 540px;
+      width: 100%;
+      padding: 35px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border-top: 6px solid #b80000;
+    }
+
+    .password-box img {
+      width: 220px;
+      max-width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .password-box h1 {
+      margin: 10px 0;
+      color: #050505;
+      font-size: 28px;
+    }
+
+    .password-box p {
+      color: #5f5f5f;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .password-box input {
+      margin-top: 18px;
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cccccc;
+      border-radius: 9px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .password-box button {
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    .error-message {
+      color: #b80000;
+      font-weight: bold;
+      margin-top: 12px;
+      display: none;
+    }
+
+    #protectedContent {
+      display: none;
+    }
+
+    header {
+      background:
+        linear-gradient(rgba(5, 5, 5, 0.94), rgba(17, 17, 17, 0.96)),
+        radial-gradient(circle at top left, rgba(184, 0, 0, 0.28), transparent 35%),
+        var(--primary-dark);
+      color: #ffffff;
+      padding: 26px 20px;
+      border-bottom: 4px solid var(--red);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .logo-box {
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 10px;
     }
 
     .logo {
-      max-width: 220px;
-      width: 100%;
+      width: 210px;
+      max-width: 100%;
       height: auto;
-      object-fit: contain;
       display: block;
-      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.18));
     }
 
-    .header h1 {
-      margin: 0 0 8px;
-      font-size: 31px;
-      line-height: 1.2;
-    }
-
-    .header p {
+    .brand-title {
       margin: 0;
-      font-size: 15px;
-      opacity: 0.96;
+      font-size: 28px;
+      letter-spacing: 0.4px;
+      font-weight: 800;
     }
 
-    .content {
-      padding: 34px 40px 40px;
+    .brand-subtitle {
+      margin: 6px 0 0;
+      color: #f0f0f0;
+      font-size: 14px;
+      letter-spacing: 0.5px;
     }
 
-    .intro-box,
-    .job-box {
-      background: #f8fbff;
-      border: 1px solid #dbeafe;
-      border-left: 5px solid #2563eb;
-      border-radius: 12px;
-      padding: 18px 20px;
-      margin-bottom: 28px;
+    .header-contact {
+      text-align: right;
+      font-size: 14px;
+      color: #f4f4f4;
+      line-height: 1.6;
     }
 
-    .intro-box p,
-    .job-box p {
-      margin: 0 0 10px;
-      color: #334155;
-      font-size: 15px;
+    .hero {
+      background:
+        linear-gradient(rgba(17, 17, 17, 0.88), rgba(5, 5, 5, 0.94)),
+        radial-gradient(circle at center, rgba(184, 0, 0, 0.2), transparent 45%),
+        var(--black);
+      color: white;
+      padding: 58px 20px;
+      text-align: center;
     }
 
-    .intro-box p:last-child,
-    .job-box p:last-child {
-      margin-bottom: 0;
+    .hero-content {
+      max-width: 980px;
+      margin: 0 auto;
     }
 
-    .job-box h2 {
-      margin: 0 0 12px;
-      font-size: 22px;
-      color: #111827;
+    .eyebrow {
+      display: inline-block;
+      color: #ffcccc;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+      margin-bottom: 12px;
     }
 
-    .job-box h3 {
-      margin: 18px 0 8px;
-      font-size: 16px;
-      color: #1e3a8a;
+    .hero h1 {
+      font-size: 42px;
+      line-height: 1.15;
+      margin: 0 0 15px;
     }
 
-    .job-box ul {
-      margin: 8px 0 0 18px;
-      padding: 0;
-      color: #334155;
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      color: #eeeeee;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    .job-box li {
-      margin-bottom: 8px;
+    .badge-row {
+      margin-top: 25px;
     }
 
-    .section-title {
-      margin: 30px 0 16px;
-      font-size: 20px;
-      color: #111827;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 8px;
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(184, 0, 0, 0.75);
+      color: #ffffff;
+      padding: 9px 14px;
+      margin: 5px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
     }
 
-    .form-grid {
+    .container {
+      max-width: 1100px;
+      margin: 35px auto 45px;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: var(--card-bg);
+      padding: 28px;
+      margin-bottom: 22px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(5, 5, 5, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: var(--primary-dark);
+      font-size: 24px;
+      border-left: 5px solid var(--red);
+      padding-left: 12px;
+    }
+
+    .section h3 {
+      color: var(--primary-dark);
+      margin-top: 24px;
+    }
+
+    .section p {
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    ul {
+      line-height: 1.9;
+      padding-left: 22px;
+    }
+
+    li::marker {
+      color: var(--red);
+    }
+
+    form {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .field {
-      margin-bottom: 20px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
+      gap: 17px;
     }
 
     label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-weight: bold;
       font-size: 14px;
-      color: #111827;
+      margin-bottom: 6px;
+      display: block;
+      color: var(--primary-dark);
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 12px 14px;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      font-size: 14px;
-      font-family: inherit;
+      padding: 13px;
+      border: 1px solid #cccccc;
+      border-radius: 9px;
+      font-size: 15px;
       background: #ffffff;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+      color: var(--text-main);
+      outline: none;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     input:focus,
     textarea:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
-      transform: translateY(-1px);
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(184, 0, 0, 0.15);
     }
 
     textarea {
-      min-height: 145px;
+      min-height: 130px;
       resize: vertical;
     }
 
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
     .question-box {
-      margin-bottom: 24px;
-      padding: 20px;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
-    }
-
-    .question-number {
-      display: inline-block;
-      background: #2563eb;
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 5px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
-    .question-text {
-      margin: 0 0 12px;
-      font-weight: 700;
-      color: #111827;
-      font-size: 15px;
-    }
-
-    .closing-box {
+      background: #fbfbfb;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--red);
+      padding: 18px;
+      border-radius: 10px;
       margin-top: 12px;
-      padding: 16px 18px;
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
-      color: #334155;
-      font-size: 14px;
     }
 
-    .checkbox-row {
+    .question-box p {
+      margin-top: 8px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+    }
+
+    .checkbox-area {
       display: flex;
+      gap: 11px;
       align-items: flex-start;
-      gap: 10px;
-      margin-top: 22px;
+      font-size: 14px;
+      line-height: 1.6;
+      background: #fbfbfb;
       padding: 16px;
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
     }
 
-    .checkbox-row input[type="checkbox"] {
+    .checkbox-area input {
       width: auto;
-      margin-top: 3px;
-      transform: scale(1.1);
+      margin-top: 4px;
     }
 
-    .actions {
+    .button-row {
       display: flex;
-      gap: 14px;
+      gap: 15px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 10px;
     }
 
     button {
+      background: linear-gradient(135deg, var(--primary-dark), #2a2a2a);
+      color: white;
       border: none;
-      border-radius: 10px;
-      padding: 14px 22px;
-      font-size: 15px;
-      font-weight: 700;
+      padding: 15px 20px;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+      border-bottom: 4px solid var(--red);
+      transition: 0.2s ease;
     }
 
     button:hover {
       transform: translateY(-1px);
-      opacity: 0.97;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      background: linear-gradient(135deg, #000000, #1a1a1a);
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    .reset-btn {
+      background: linear-gradient(135deg, #6b6b6b, #2f2f2f);
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: #ffffff;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 14px;
+      border-top: 4px solid var(--red);
+    }
+
+    footer p {
+      margin: 6px 0;
+      color: #eeeeee;
+    }
+
+    footer strong {
       color: #ffffff;
     }
 
-    .btn-secondary {
-      background: #e5e7eb;
-      color: #111827;
-    }
-
-    .footer-note {
-      margin-top: 28px;
-      padding-top: 18px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 13px;
-      color: #6b7280;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      body::before {
-        background-size: 420px auto;
+    @media (max-width: 760px) {
+      .header-inner {
+        display: block;
+        text-align: center;
       }
 
-      .page-wrap {
-        padding: 16px 10px;
+      .brand-block {
+        justify-content: center;
       }
 
-      .header,
-      .content {
-        padding-left: 20px;
-        padding-right: 20px;
+      .header-contact {
+        text-align: center;
+        margin-top: 14px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
       }
 
       .form-grid {
         grid-template-columns: 1fr;
       }
 
-      .actions {
-        flex-direction: column;
-      }
-
-      .actions button {
-        width: 100%;
-      }
-
-      .header h1 {
-        font-size: 25px;
+      .section {
+        padding: 22px;
       }
 
       .logo {
-        max-width: 170px;
+        width: 190px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page-wrap">
-    <div class="container">
-      <div class="header">
-        <div class="logo-wrap">
-          <img src="assets/logo-108.png" alt="108 Holding Company, Inc. Logo" class="logo" />
-        </div>
-        <h1>Data Entry Specialist Interview Form</h1>
-        <p>108 Holding Company, Inc. | Professional Text-Based Candidate Interview</p>
-      </div>
 
-      <div class="content">
-        <div class="intro-box">
-          <p><strong>Welcome.</strong> Thank you for your interest in joining 108 Holding Company, Inc. as a Remote Data Entry Specialist.</p>
-          <p>This interview form is designed to evaluate your written communication, professionalism, attention to detail, relevant experience, and overall suitability for the position.</p>
-          <p>Please complete all sections carefully and answer each question thoroughly before submitting your interview form.</p>
-        </div>
+  <div class="password-screen" id="passwordScreen">
+    <div class="password-box">
+      <img src="400-logo.jpeg" alt="400 Marketing LLC Logo">
 
-        <div class="job-box">
-          <h2>Job Details</h2>
-          <p><strong>Position Title:</strong> Data Entry Specialist</p>
-          <p><strong>Company:</strong> 108 Holding Company, Inc.</p>
-          <p><strong>Employment Type:</strong> Remote</p>
-          <p><strong>Location:</strong> Work From Home</p>
+      <h1>Password Required</h1>
 
-          <h3>Position Overview</h3>
-          <p>
-            108 Holding Company, Inc. is seeking a reliable, detail-oriented, and organized Data Entry Specialist to support accurate and efficient data management. The ideal candidate will be responsible for entering, updating, verifying, and maintaining information across spreadsheets, databases, and internal systems while ensuring a high level of accuracy and confidentiality.
-          </p>
+      <p>
+        This assessment page is password-protected and intended only for selected candidates invited by 400 Marketing LLC.
+      </p>
 
-          <h3>Key Responsibilities</h3>
-          <ul>
-            <li>Accurately enter, update, and maintain large volumes of data in company systems and spreadsheets.</li>
-            <li>Review records for completeness, consistency, and accuracy before submission.</li>
-            <li>Identify errors, discrepancies, or missing information and resolve them promptly.</li>
-            <li>Maintain confidential and sensitive company information with professionalism and care.</li>
-            <li>Organize digital records and support administrative data-related tasks as assigned.</li>
-            <li>Meet productivity, quality, and deadline expectations in a remote work environment.</li>
-          </ul>
+      <p>
+        Please enter the correct password provided by the HR team to access the interview assessment.
+      </p>
 
-          <h3>Preferred Qualifications</h3>
-          <ul>
-            <li>Previous experience in data entry, clerical, administrative, or office support roles.</li>
-            <li>Strong attention to detail and excellent organizational skills.</li>
-            <li>Ability to work independently and manage time effectively.</li>
-            <li>Proficiency in Microsoft Excel, Google Sheets, and other data management tools.</li>
-            <li>Strong written communication and a high level of professionalism.</li>
-          </ul>
-        </div>
+      <input type="password" id="passwordInput" placeholder="Enter Password">
 
-        <form id="interviewForm" action="https://formspree.io/f/mgopeaaq" method="POST">
-          <input type="hidden" name="_subject" value="New Data Entry Specialist Interview Submission" />
+      <button type="button" onclick="checkPassword()">Continue to Assessment</button>
 
-          <h2 class="section-title">Personal Information</h2>
-
-          <div class="form-grid">
-            <div class="field">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" name="Full Name" required />
-            </div>
-
-            <div class="field">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="Email Address" required />
-            </div>
-
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="Phone Number" required />
-            </div>
-
-            <div class="field full">
-              <label for="address">Address</label>
-              <input type="text" id="address" name="Address" required />
-            </div>
-          </div>
-
-          <h2 class="section-title">Interview Questions</h2>
-
-          <div class="question-box">
-            <div class="question-number">Question 1</div>
-            <p class="question-text">To begin, please provide a detailed introduction of yourself, including your professional background, relevant experience, and any key skills or strengths you believe make you a strong candidate for a Data Entry Specialist role.</p>
-            <textarea name="Question 1" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 2</div>
-            <p class="question-text">Kindly share your current employment status, including whether you are actively working, seeking new opportunities, or available immediately, and briefly explain your reason for seeking this position.</p>
-            <textarea name="Question 2" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 3</div>
-            <p class="question-text">Please describe your previous experience in data entry, clerical, or administrative roles. Include specific responsibilities, the type of data you handled, and the systems or processes you were involved in.</p>
-            <textarea name="Question 3" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 4</div>
-            <p class="question-text">What is your current typing speed in words per minute (WPM), and what methods or practices do you use to maintain a high level of accuracy while working efficiently under time constraints?</p>
-            <textarea name="Question 4" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 5</div>
-            <p class="question-text">Can you outline the software, tools, or platforms you have experience with that are relevant to data entry, such as Microsoft Excel, Google Sheets, databases, or ERP systems? Please describe your level of proficiency with each.</p>
-            <textarea name="Question 5" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 6</div>
-            <p class="question-text">This is a remote position. Please explain your experience working remotely, including how you structure your workday, manage your time effectively, and maintain productivity without direct supervision.</p>
-            <textarea name="Question 6" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 7</div>
-            <p class="question-text">Data entry often involves repetitive tasks. How do you ensure consistent focus, accuracy, and efficiency when performing repetitive work over extended periods?</p>
-            <textarea name="Question 7" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 8</div>
-            <p class="question-text">Accuracy is critical in this role. Please explain the steps you take to review, verify, and validate your work before submission to minimize errors.</p>
-            <textarea name="Question 8" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 9</div>
-            <p class="question-text">Describe a situation in your previous work where you identified an error or inconsistency in data. What actions did you take to correct it, and what was the outcome?</p>
-            <textarea name="Question 9" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 10</div>
-            <p class="question-text">How do you manage and prioritize multiple assignments or deadlines when working on several data-related tasks simultaneously? If you are provided with incomplete, unclear, or inconsistent information, how would you handle the situation to ensure the task is completed correctly?</p>
-            <textarea name="Question 10" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 11</div>
-            <p class="question-text">Which financial institution do you primarily use for payroll purposes? (Please note: prepaid banks are not accepted.) If hired, what would your 60-day plan look like in this role?</p>
-            <textarea name="Question 11" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 12</div>
-            <p class="question-text">This role may involve handling sensitive or confidential information. What practices do you follow to ensure data security, confidentiality, and compliance with company policies?</p>
-            <textarea name="Question 12" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 13</div>
-            <p class="question-text">Please describe your key strengths that are directly relevant to this role, particularly in relation to attention to detail, organization, and reliability.</p>
-            <textarea name="Question 13" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 14</div>
-            <p class="question-text">Every professional has areas for improvement. Please share one or two areas you are currently working to improve and the steps you are taking to develop in those areas.</p>
-            <textarea name="Question 14" required></textarea>
-          </div>
-
-          <div class="question-box">
-            <div class="question-number">Question 15</div>
-            <p class="question-text">Finally, what interests you most about this Data Entry Specialist position with 108 Holding Company, Inc., and how do you believe your skills and experience will contribute to our team’s success?</p>
-            <textarea name="Question 15" required></textarea>
-          </div>
-
-          <div class="closing-box">
-            Once you have completed all responses, please submit your final message indicating completion. Our HR team will review your responses, and qualified candidates will be contacted with the next steps.
-          </div>
-
-          <div class="checkbox-row">
-            <input type="checkbox" id="certify" name="Certification" value="Yes" required />
-            <label for="certify" style="margin: 0; font-weight: 600;">
-              I certify that the information provided in this interview form is true and complete to the best of my knowledge.
-            </label>
-          </div>
-
-          <div class="actions">
-            <button type="submit" class="btn-primary" id="submitButton">Submit Interview Form</button>
-            <button type="reset" class="btn-secondary">Reset Form</button>
-          </div>
-
-          <div class="footer-note">
-            108 Holding Company, Inc. • Encino, CA 91436 • info@108holdingcompanyinc.com • www.108holdingcompanyinc.com
-          </div>
-        </form>
+      <div class="error-message" id="errorMessage">
+        Incorrect password. Please check the password provided by HR and try again.
       </div>
     </div>
   </div>
 
+  <div id="protectedContent">
+
+    <header>
+      <div class="header-inner">
+        <div class="brand-block">
+          <div class="logo-box">
+            <img src="400-logo.jpeg" alt="400 Marketing LLC Logo" class="logo">
+          </div>
+
+          <div>
+            <h1 class="brand-title">400 Marketing LLC</h1>
+            <p class="brand-subtitle">Strategic Marketing • Digital Growth • Brand Visibility</p>
+          </div>
+        </div>
+
+        <div class="header-contact">
+          <div>info@400marketingllc.com</div>
+          <div>30745 Pacific Coast Hwy #2014, Malibu, CA 90265</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Secure Candidate Assessment</span>
+        <h1>Data Entry Specialist Interview Form</h1>
+        <p>
+          Welcome. Thank you for your interest in joining 400 Marketing LLC as a Remote Data Entry Specialist.
+          This professional text-based interview helps our hiring team evaluate your qualifications, accuracy,
+          communication skills, organization, and overall suitability for the role.
+        </p>
+
+        <div class="badge-row">
+          <span class="badge">Remote Position</span>
+          <span class="badge">HR Review Required</span>
+          <span class="badge">Confidential Submission</span>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+
+      <section class="section">
+        <h2>Job Details</h2>
+
+        <p><strong>Position Title:</strong> Data Entry Specialist</p>
+        <p><strong>Company:</strong> 400 Marketing LLC</p>
+        <p><strong>Employment Type:</strong> Remote</p>
+        <p><strong>Location:</strong> Work From Home</p>
+
+        <h3>Position Overview</h3>
+        <p>
+          400 Marketing LLC is seeking a reliable, detail-oriented, and organized Data Entry Specialist to support accurate and efficient data management.
+        </p>
+
+        <h3>Key Responsibilities</h3>
+        <ul>
+          <li>Accurately enter, update, and maintain large volumes of data in company systems and spreadsheets.</li>
+          <li>Review records for completeness, consistency, and accuracy before submission.</li>
+          <li>Identify errors, discrepancies, or missing information and resolve them promptly.</li>
+          <li>Maintain confidential and sensitive company information with professionalism and care.</li>
+          <li>Organize digital records and support administrative data-related tasks as assigned.</li>
+          <li>Meet productivity, quality, and deadline expectations in a remote work environment.</li>
+        </ul>
+
+        <h3>Preferred Qualifications</h3>
+        <ul>
+          <li>Previous experience in data entry, clerical, administrative, or office support roles.</li>
+          <li>Strong attention to detail and excellent organizational skills.</li>
+          <li>Ability to work independently and manage time effectively.</li>
+          <li>Proficiency in Microsoft Excel, Google Sheets, and other data management tools.</li>
+          <li>Strong written communication and a high level of professionalism.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Complete Your Interview Assessment</h2>
+        <p>
+          Please complete all sections carefully and answer each question thoroughly before submitting your interview form.
+        </p>
+
+        <form
+          id="interviewForm"
+          action="https://formsubmit.co/info@400marketingllc.com"
+          method="POST"
+        >
+
+          <input type="hidden" name="_subject" value="400 Marketing LLC - Data Entry Specialist Interview Submission">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://dataentryspecialistinterviewform.cv/thank-you.html">
+
+          <h2>Personal Information</h2>
+
+          <div class="form-grid">
+            <div>
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="Full Name" required>
+            </div>
+
+            <div>
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="Email Address" required>
+            </div>
+
+            <div>
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="Phone Number" required>
+            </div>
+
+            <div>
+              <label for="address">Address *</label>
+              <input type="text" id="address" name="Address" required>
+            </div>
+          </div>
+
+          <h2>Interview Questions</h2>
+
+          <div class="question-box">
+            <label for="q1">Question 1</label>
+            <p>To begin, please provide a detailed introduction of yourself, including your professional background, relevant experience, and any key skills or strengths you believe make you a strong candidate for a Data Entry Specialist role.</p>
+            <textarea id="q1" name="Question 1" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q2">Question 2</label>
+            <p>Kindly share your current employment status, including whether you are actively working, seeking new opportunities, or available immediately, and briefly explain your reason for seeking this position.</p>
+            <textarea id="q2" name="Question 2" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q3">Question 3</label>
+            <p>Please describe your previous experience in data entry, clerical, or administrative roles. Include specific responsibilities, the type of data you handled, and the systems or processes you were involved in.</p>
+            <textarea id="q3" name="Question 3" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q4">Question 4</label>
+            <p>What is your current typing speed in words per minute (WPM), and what methods or practices do you use to maintain a high level of accuracy while working efficiently under time constraints?</p>
+            <textarea id="q4" name="Question 4" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q5">Question 5</label>
+            <p>Can you outline the software, tools, or platforms you have experience with that are relevant to data entry, such as Microsoft Excel, Google Sheets, databases, or ERP systems?</p>
+            <textarea id="q5" name="Question 5" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q6">Question 6</label>
+            <p>This is a remote position. Please explain your experience working remotely, including how you structure your workday, manage your time effectively, and maintain productivity without direct supervision.</p>
+            <textarea id="q6" name="Question 6" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q7">Question 7</label>
+            <p>Data entry often involves repetitive tasks. How do you ensure consistent focus, accuracy, and efficiency when performing repetitive work over extended periods?</p>
+            <textarea id="q7" name="Question 7" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q8">Question 8</label>
+            <p>Accuracy is critical in this role. Please explain the steps you take to review, verify, and validate your work before submission to minimize errors.</p>
+            <textarea id="q8" name="Question 8" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q9">Question 9</label>
+            <p>Describe a situation in your previous work where you identified an error or inconsistency in data. What actions did you take to correct it, and what was the outcome?</p>
+            <textarea id="q9" name="Question 9" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q10">Question 10</label>
+            <p>How do you manage and prioritize multiple assignments or deadlines when working on several data-related tasks simultaneously?</p>
+            <textarea id="q10" name="Question 10" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q11">Question 11</label>
+            <p>If hired, are you able to complete payroll and onboarding documentation through the company’s secure onboarding process? Also, what would your 60-day plan look like in this role?</p>
+            <textarea id="q11" name="Question 11" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q12">Question 12</label>
+            <p>This role may involve handling sensitive or confidential information. What practices do you follow to ensure data security, confidentiality, and compliance with company policies?</p>
+            <textarea id="q12" name="Question 12" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q13">Question 13</label>
+            <p>Please describe your key strengths that are directly relevant to this role, particularly in relation to attention to detail, organization, and reliability.</p>
+            <textarea id="q13" name="Question 13" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q14">Question 14</label>
+            <p>Every professional has areas for improvement. Please share one or two areas you are currently working to improve and the steps you are taking to develop in those areas.</p>
+            <textarea id="q14" name="Question 14" required></textarea>
+          </div>
+
+          <div class="question-box">
+            <label for="q15">Question 15</label>
+            <p>Finally, what interests you most about this Data Entry Specialist position with 400 Marketing LLC, and how do you believe your skills and experience will contribute to our team’s success?</p>
+            <textarea id="q15" name="Question 15" required></textarea>
+          </div>
+
+          <div class="checkbox-area">
+            <input type="checkbox" id="certify" name="Certification" value="I certify that the information provided is true and complete." required>
+            <label for="certify">
+              I certify that the information provided in this interview form is true and complete to the best of my knowledge.
+            </label>
+          </div>
+
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="button-row">
+            <button type="submit">Submit Interview Form</button>
+            <button type="reset" class="reset-btn">Reset Form</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <p><strong>400 Marketing LLC</strong></p>
+      <p>30745 Pacific Coast Hwy #2014, Malibu, CA 90265</p>
+      <p>info@400marketingllc.com • www.400marketingllc.com</p>
+      <p>© 2026 400 Marketing LLC. All rights reserved.</p>
+    </footer>
+
+  </div>
+
   <script>
-    const form = document.getElementById("interviewForm");
-    const submitButton = document.getElementById("submitButton");
+    function checkPassword() {
+      const correctPassword = "DATA400";
+      const enteredPassword = document.getElementById("passwordInput").value.trim();
+      const passwordScreen = document.getElementById("passwordScreen");
+      const protectedContent = document.getElementById("protectedContent");
+      const errorMessage = document.getElementById("errorMessage");
 
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
+      if (enteredPassword === correctPassword) {
+        passwordScreen.style.display = "none";
+        protectedContent.style.display = "block";
+        window.scrollTo(0, 0);
+      } else {
+        errorMessage.style.display = "block";
       }
+    }
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Submitting...";
-
-      try {
-        const response = await fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: {
-            "Accept": "application/json"
-          }
-        });
-
-        if (response.ok) {
-          window.location.href = "https://dataentryspecialistinterviewform.cv/thank-you.html";
-        } else {
-          alert("There was a problem submitting the form. Please try again.");
-          submitButton.disabled = false;
-          submitButton.textContent = "Submit Interview Form";
-        }
-      } catch (error) {
-        alert("There was a network error. Please try again.");
-        submitButton.disabled = false;
-        submitButton.textContent = "Submit Interview Form";
+    document.getElementById("passwordInput").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        checkPassword();
       }
     });
   </script>
+
 </body>
 </html>
